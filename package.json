@@ -1,5 +1,5 @@
 {
   "name": "middleware-stack",
   "version": "0.0.1",
-  "main": "middlewarestack.js",
+  "main": "middlewarestack.js"
 }
