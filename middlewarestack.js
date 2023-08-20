@@ -37,7 +37,9 @@ export class MiddlewareStack {
 	setMiddleWares(middleWares) {
 		const mid = [];
 		for (let middleWare of middleWares) {
-			mid.push(middleWare);
+			if (middleWare) {
+				mid.push(middleWare);
+			}
 		}
 		this.#middleWares = mid;
 	}
@@ -54,7 +56,9 @@ export class MiddlewareStack {
 	 * @param {Object} middleWare - The middleware to push
 	 */
 	push(middleWare) {
-		this.#tempMiddleWares.push(middleWare);
+		if (middleWare) {
+			this.#tempMiddleWares.push(middleWare);
+		}
 	}
 
 	/**
