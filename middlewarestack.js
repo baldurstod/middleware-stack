@@ -8,7 +8,13 @@ export class MiddlewareStack {
 		return (req, res, next) => {
 			const iter = this.#middleWares[Symbol.iterator]();
 
-			const nextCallback = () => {
+			const nextCallback = (nextParam) => {
+				// We have an error or route, exit the stack early
+				if (nextParam) {
+					next(nextParam);
+					return;
+				}
+
 				const current = iter.next();
 				if (current.done) {
 					// We are done, proceed to the next middleware
